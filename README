@@ -1,0 +1,72 @@
+Copyright Mihai Alexandru 313CAa 2021-2022
+
+-----------------------------------------------------------------------------------------
+
+-In order to dynamically memorize the given matrices, a triple pointer has been used
+-Additionally the length and width of each matrix were memorized in 2 arrays
+-The main file includes a number of headers that assures a high lisibility,
+alongside the modularity of the code
+-Considering the number of cases given in the task, a switch block has been used
+
+-----------------------------------------------------------------------------------------
+
+-The allocation and reallocation functions have been included into a separate file
+-Those functions assures the allocations of triple pointers, matrices and arrays
+and the resizing of arrays and the used triple pointer
+
+-----------------------------------------------------------------------------------------
+
+-All the cases have been treated individually by different functions into a separate file
+-For each given case, they include reading the values given in order to perform
+the required tasks
+-They also include a substantial proportion of the defensive programming used in this task
+by assuring that failed functions do not overwrite previously used memory spaces
+-All the variables used in the function headers assure that the changes will be visible
+in the main function by writing in the specified memory space (the reason why all function
+headers include the memory address of a certain variable and not the variable itself)
+
+-----------------------------------------------------------------------------------------
+
+-The functions that mainly solve the task will be described individually below
+-The load function assures the necessary memory space for a given matrix by resizing
+the entire array of matrixes by one memory block
+-The printing dimensions function is quite self-explanatory, it prints the length and
+the width of a given matrix
+-The printing matrix function, similarly to the one above, prints the objects of a matrix
+-The resizing matrix function uses an auxiliary matrix that follows the given instructions
+(new length and width, and a certain permutation of previous rows and columns), as well as
+freeing the matrix that will be replaced
+-The multiplication function initially loads a new matrix in the the pointer and performs
+the multiplication of 2 given matrices
+-The sorting function is based on a array of sums that establish the order in which the
+matrices will be found in the newly sorted array
+-The transposing function has a similar approach as the resizing function, using an
+auxiliary matrix and freeing the memory space of the one that has to be replaced
+-The single free function, alongside freeing the memory space of the given matrix, assures
+the continuity of the array of matrices
+
+-----------------------------------------------------------------------------------------
+
+-Additional freeing functions and utility functions have been included in different files
+-The freeing functions assures the freeing of arrays and matrices as well as freeing
+all the memory resources used in case of a failed allocation or the end of program
+-The utility file includes checking the integrity of a given index, different error
+warnings, as well as, the swap function used in the sorting algorithm
+
+-----------------------------------------------------------------------------------------
+
+-For the bonus task the required an implementation of the Strassen Algorithm, each matrix
+had to be divided into 4 matrix blocks in order to simply the multiplication process
+-This algorithm, although is using a high amount of auxiliary memory is considered 
+considerably more time efficient than the usual multiplication algorithm[1]
+-As mentioned previously, using a recursive function each matrix has been divided into 
+smaller matrix blocks that were memorized into an array of matrices
+-The key of the Stranssen algorithm consists of using several different auxiliary matrices
+that are simplifying the multiplication process and are determined by a number of addition,
+substractions and multiplications.
+-At each step the size of each matrix is reduced by a factor of 2 until a simple
+multiplication of 2 2x2 matrices can be achieved
+
+-----------------------------------------------------------------------------------------
+
+[1] https://en.wikipedia.org/wiki/Strassen-algorithm
